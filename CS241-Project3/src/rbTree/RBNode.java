@@ -30,7 +30,7 @@ public class RBNode<V extends Comparable<V>> {
 	    left = null;
 	    right = null;
 	    parent = null;
-	    isRed = false;
+	    isRed = true;
 	}
     
 }
