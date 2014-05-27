@@ -30,7 +30,7 @@ public class RBTree<V extends Comparable<V>> {
 	position.isRed = true;
 
 	if (position.parent.isRed) {
-	    rotate(position);
+	    rotate(position.parent);
 	}
     }
 
@@ -111,7 +111,10 @@ public class RBTree<V extends Comparable<V>> {
     private void rightRotate(RBNode<V> node) {
 	RBNode<V> temp = node.parent;
 	// if the parent node is the left child of the grandparent
-	if (node.parent.parent.left == node.parent) {
+	if(node.parent == root){
+	    root = node;
+	}
+	else if (node.parent.parent.left == node.parent) {
 
 	    node.parent.parent.left = node;
 
@@ -126,7 +129,8 @@ public class RBTree<V extends Comparable<V>> {
 	// set right child of node to ex parent
 	node.right = temp;
 	// recolor
-	node.right.isRed = true;
+	node.right.isRed = false;
+	node.left.isRed = false;
 	node.isRed = false;
     }
 
