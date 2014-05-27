@@ -106,13 +106,13 @@ public class RBTree<V extends Comparable<V>> {
 	private void rightRotate(RBNode<V> node) {
 		RBNode<V> temp = node.parent;
 		// if the parent node is the left child of the grandparent
-		if (node.parent.parent.left == node.parent) {
-			node.parent.parent.left = node;
+		if (node.parent.left == node) {
+			node.parent.left = node;
 		}
 		// otherwise the parent node is the right child of the grandparent
 		else {
 			// right rotate on right subtree
-			node.parent.parent.right = node;
+			node.parent.right = node;
 		}
 		// right child of node becomes left child of parent node
 		temp.left = node.right;
@@ -125,7 +125,7 @@ public class RBTree<V extends Comparable<V>> {
 
 	private void leftRotate(RBNode<V> node) {
 		RBNode<V> temp = node.parent;
-
+		//
 	}
 
 	private void rotate(RBNode<V> node) {
